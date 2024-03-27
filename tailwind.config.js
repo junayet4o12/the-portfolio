@@ -6,6 +6,9 @@ export default {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        'league-spartan': ['League Spartan', 'sans-serif'],
+      },
       colors: {
         primary: '#fe3938',
         secondary: '#363383',
@@ -13,5 +16,8 @@ export default {
     },
   },
   plugins: [require("daisyui")],
+  daisyui: {
+    themes: ['light'],
+  },
 }
 

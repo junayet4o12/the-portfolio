@@ -1,16 +1,28 @@
-import React from 'react';
-
-const Navbar = () => {
+import React, { useContext, useEffect, useState } from 'react';
+import { FaSquareFacebook, FaSquareXTwitter } from "react-icons/fa6";
+import { FaLinkedin } from "react-icons/fa";
+import { IoLogoYoutube } from "react-icons/io";
+import { motion } from 'framer-motion'
+import Sidebar from '../Sidebar/Sidebar';
+import useParent from '../../hooks/useParent';
+import { ParentContext } from '../../ParentSection/ParentSection';
+const Navbar = ({navbar}) => {
+    const { userData } = useContext(ParentContext);
+    console.log(userData);
+    const logos = [
+        <p key={FaSquareFacebook} className='text-2xl font-bold text-blue-400'><FaSquareFacebook /></p>,
+        <p key={FaSquareXTwitter} className='text-2xl font-bold text-white'><FaSquareXTwitter /></p>,
+        <p key={FaLinkedin} className='text-2xl font-bold text-blue-400'><FaLinkedin /></p>,
+        <p key={IoLogoYoutube} className='text-[26px] font-bold text-red-500'><IoLogoYoutube /></p>]
+    
     return (
         <div>
-            <div className="navbar bg-base-100">
-                <div className="flex-1">
-                    <a className="btn btn-ghost text-xl">daisyUI</a>
-                </div>
+            <div className={`navbar  text-white h-20 ${navbar ? 'bg-[#212121]' : 'bg-black'}`}>
                 <div className="flex-none">
-                    <button className="btn btn-square btn-ghost">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="inline-block w-5 h-5 stroke-current"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z"></path></svg>
-                    </button>
+                    <Sidebar />
+                </div>
+                <div className="absolute box flex-1 text-2xl font-extrabold capitalize">
+                    <div>{userData?.user?.about?.name}.</div>
                 </div>
             </div>
         </div>

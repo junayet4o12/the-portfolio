@@ -1,3 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap');
+
+* {
+    font-family: "League Spartan", sans-serif;
+    scrollbar-width: thin;
+    scrollbar-color: white black;
+}
+
+.box {
+    animation: upDown 15s infinite reverse;
+}
+
+@keyframes upDown {
+    0% {
+        top: 10px;
+        right: 64px;
+    }
+
+    25% {
+        top: 10px;
+        right: 40px;
+    }
+
+    50% {
+        top: 20px;
+        right: 40px;
+    }
+
+    75% {
+        top: 20px;
+        right: 64px;
+    }
+    100% {
+        top: 10px;
+        right: 64px;
+    }
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
